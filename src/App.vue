@@ -1,17 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <component :is="$route.meta.layout || 'div'"></component>
+  <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      layout: "div",
+    };
+  },
+  created() {
+    console.log(this.$route.meta.layout);
+  },
+  mounted() {},
+  components: {},
+};
 </script>
 
 <style>
